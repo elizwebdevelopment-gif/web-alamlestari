@@ -177,6 +177,10 @@ a.anchor{color:var(--accent-2);text-decoration:none}
 	text-align: center;
 }
 
+.h2about {
+	padding-bottom: 1px;
+}
+
 nav ul {
   flex-direction: column;
   gap: 8px;
