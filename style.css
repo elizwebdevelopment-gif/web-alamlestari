@@ -38,7 +38,8 @@ nav a:hover{background:rgba(0,0,0,0.04);color:var(--accent-2)}
 .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
 .panel{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
 .hero-left h2{margin:0 0 10px;font-size:28px}
-.lead{color:var(--muted);margin-bottom:18px}
+.lead 1{color:var(--muted);margin-top:18px}
+.lead{color:var(--muted);margin-bottom:5px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:12px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
 .btn-primary{background:var(--accent);color:white}
@@ -156,6 +157,8 @@ a.anchor{color:var(--accent-2);text-decoration:none}
   }
   .hero-section h2 {
     font-size: 1.6rem;
+    margin-bottom: 1px;
+    margin-top: 5px;
   }
   .hero-section p {
     font-size: 1rem;
@@ -171,14 +174,15 @@ a.anchor{color:var(--accent-2);text-decoration:none}
   form input, form textarea, form button {
     width: 100% !important;
   }
+  .h2about {
+    padding: 0px 10px;
+  }
 }
 
 #about h2 {
-	text-align: center;
-}
-
-.h2about {
-	padding-bottom: 1px;
+    text-align: center;
+    margin-bottom: 1px;
+    margin-top: 18px;
 }
 
 nav ul {
@@ -187,7 +191,7 @@ nav ul {
 }
 .hero-section h2 {
   font-size: 1.6rem;
-	text-align: center;
+  text-align: center;
 }
 .hero-section p {
   font-size: 1rem;
@@ -220,4 +224,8 @@ html, body {
 /* Ensure images and sections never overflow */
 img, section, div {
   max-width: 100%;
+}
+
+.h2about {
+	padding: 0px 10px
 }

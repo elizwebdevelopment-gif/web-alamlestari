@@ -35,11 +35,12 @@ function handleSubmit(event) {
   msgBox.style.color = "#1b5e20";
   msgBox.textContent = "Terima kasih! Pendaftaran Anda telah dikirim.";
   
+/*
   const nomorWA = 6285243126794
   const message = `Nama: ${name}\nNo. Whatsapp: ${phone}\nPaket Pelatihan: ${pkg}\nPertanyaan: ${msgBox}';
   const whatsappUrl = `https://wa.me/${nomorWA}?text=${encodeURIComponent(message)}`;
   window.open(whatsappUrl, '_blank');
-
+*/
 
 
   document.getElementById("regForm").reset();
