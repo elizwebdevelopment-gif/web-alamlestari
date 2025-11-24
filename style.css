@@ -37,7 +37,7 @@ nav a:hover{background:rgba(0,0,0,0.04);color:var(--accent-2)}
 /* Hero */
 .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
 .panel{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.hero-left h2{margin:0 0 10px;font-size:28px}
+.hero-left h2{color:#8A9A5B; margin:0 0 10px;font-size:28px}
 .lead 1{color:var(--muted);margin-top:18px}
 .lead{color:var(--muted);margin-bottom:5px}
 .cta-row{display:flex;gap:12px;flex-wrap:wrap}
@@ -156,6 +156,7 @@ a.anchor{color:var(--accent-2);text-decoration:none}
     display: block;
   }
   .hero-section h2 {
+    color:#8A9A5B;
     font-size: 1.6rem;
     margin-bottom: 1px;
     margin-top: 5px;
@@ -175,11 +176,13 @@ a.anchor{color:var(--accent-2);text-decoration:none}
     width: 100% !important;
   }
   .h2about {
+    color:#8A9A5B;
     padding: 0px 10px;
   }
 }
 
 #about h2 {
+    color:#8A9A5B;
     text-align: center;
     margin-bottom: 1px;
     margin-top: 18px;
@@ -190,6 +193,7 @@ nav ul {
   gap: 8px;
 }
 .hero-section h2 {
+  color:#8A9A5B;
   font-size: 1.6rem;
   text-align: center;
 }
@@ -227,5 +231,9 @@ img, section, div {
 }
 
 .h2about {
-	padding: 0px 10px
+  color:#8A9A5B;
+  padding: 0px 10px;
+}
+h2, h3 {
+ color:#8A9A5B;
 }
