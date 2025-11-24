@@ -16,17 +16,18 @@ function resetForm() {
 function handleSubmit(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const phone = document.getElementById("phone").value.trim();
+  const name = document.getElementById("nama").value.trim();
+  const phone = document.getElementById("whatsapp").value.trim();
   const email = document.getElementById("email").value.trim();
-  const pkg = document.getElementById("package").value;
+  const pkg = document.getElementById("paket").value;
   const agree = document.getElementById("agree").checked;
+  const note = document.getElementById("note").value.trim();
   const msgBox = document.getElementById("msg");
 
   // ===========================
   // VALIDASI FIELD WAJIB
   // ===========================
-  if (!name || !phone || !email || !pkg || !agree) {
+  if (!nama || !whatsapp || !email || !paket || !agree) {
     msgBox.style.display = "block";
     msgBox.style.background = "#ffecec";
     msgBox.style.color = "#b30000";
@@ -49,11 +50,11 @@ function handleSubmit(event) {
   // ===========================
   // VALIDASI PANJANG NOMOR HP (10–13 digit)
   // ===========================
-  if (phone.length < 9 || phone.length > 14) {
+  if (phone.length < 10 || phone.length > 13) {
     msgBox.style.display = "block";
     msgBox.style.background = "#ffecec";
     msgBox.style.color = "#b30000";
-    msgBox.textContent = "Nomor HP harus terdiri dari 9 hingga 14 digit.";
+    msgBox.textContent = "Nomor HP harus terdiri dari 10 hingga 13 digit.";
     return;
   }
 
@@ -70,16 +71,45 @@ function handleSubmit(event) {
   }
 
   // ===========================
+  // KIRIM DATA KE GOOGLE SHEET
+  // ===========================
+  const scriptURL = "https://script.google.com/macros/s/AKfycby042hMEdOTd7r5a9titT7CUQlnNldaM5xqr5yxBky8MLeL8qcRLyl_VvTjiqeO7pKing/exec"; // Ganti dengan URL Apps Script Web App Anda
+  const formData = {
+    name: name,
+    phone: phone,
+    email: email,
+    pkg: pkg,
+    agree: agree ? "Yes" : "No",
+    note: note,
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(() => {
+    console.log("Data berhasil dikirim ke Google Sheet");
+  })
+  .catch((error) => {
+    console.error("Gagal mengirim data ke Google Sheet:", error);
+  });
+
+  // ===========================
   // KIRIM KE WHATSAPP
   // ===========================
-  const waNumber = "6285240xxxxxx"; // ganti nomor admin
+  const waNumber = "6281290580243"; // ganti nomor admin
   const waMessage =
     `Halo Admin, saya ingin mendaftar.\n\n` +
     `Nama: ${name}\n` +
     `Email: ${email}\n` +
     `No. HP: ${phone}\n` +
     `Paket: ${pkg}\n` +
-    `Saya menyetujui syarat & ketentuan.`;
+    `Saya menyetujui syarat & ketentuan.\n` +
+    `${note}`;
 
   const encodedMessage = encodeURIComponent(waMessage);
   const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
@@ -92,7 +122,7 @@ function handleSubmit(event) {
   msgBox.style.display = "block";
   msgBox.style.background = "#eefbf0";
   msgBox.style.color = "#1b5e20";
-  msgBox.textContent = "Terima kasih! Anda akan diarahkan ke WhatsApp.";
+  msgBox.textContent = "Terima kasih! Data Anda sudah tersimpan dan Anda akan diarahkan ke WhatsApp.";
 
   document.getElementById("regForm").reset();
 }
