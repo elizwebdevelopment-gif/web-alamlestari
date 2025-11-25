@@ -108,7 +108,7 @@ function handleSubmit(event) {
     `Email: ${email}\n` +
     `No. HP: ${phone}\n` +
     `Paket: ${pkg}\n` +
-    `Saya setuju untuk diberikan info lebih lanjut mengenai pelatihan Lembaga Pelatihan Pupuk Organik Alam Lestari.\n` +
+    `Saya menyetujui syarat & ketentuan.\n` +
     `${note}`;
 
   const encodedMessage = encodeURIComponent(waMessage);
@@ -126,4 +126,3 @@ function handleSubmit(event) {
 
   document.getElementById("regForm").reset();
 }
-
