@@ -1,3 +1,5 @@
+/* --- style.css V2 --- */
+
 /* --- Reset & base --- */
 :root{
   --bg:#f7fbf6;
@@ -27,7 +29,7 @@ body{
 header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
 .brand{display:flex;align-items:center;gap:12px}
 .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:var(--shadow)}
-.brand h1{color:#556B2F; margin:0;font-size:18px;line-height:1}
+.brand h1{color:#556B2F;margin:0;font-size:18px;line-height:1}
 .brand p{margin:0;font-size:12px;color:var(--muted)}
 
 nav{display:flex;gap:12px;align-items:center}
@@ -37,14 +39,14 @@ nav a:hover{background:rgba(0,0,0,0.04);color:var(--accent-2)}
 /* Hero */
 .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:28px}
 .panel{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-.hero-left h2{color:#556B2F; margin:0 0 10px;font-size:28px}
-.lead 1{color:var(--muted);margin-top:18px}
+.hero-left {text-align:center;}
+.hero-left h2{color:#556B2F;margin:0 0 5px;font-size:28px;}
 .lead{color:var(--muted);margin-bottom:5px}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.cta-row{display:block;gap:12px;flex-wrap:wrap}
 .btn{padding:12px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
 .btn-primary{background:var(--accent);color:white}
 .btn-ghost{background:transparent;border:1px solid #e6f0e6;color:var(--accent-2)}
-.stats{display:flex;gap:12px;margin-top:16px}
+.stats{display:flex;gap:12px;margin-top:16px;justify-content:center;}
 .stat{background:linear-gradient(180deg,#f8fff8,#ffffff);padding:10px;border-radius:10px;text-align:center;min-width:84px}
 .stat b{display:block;font-size:18px}
 
@@ -71,43 +73,53 @@ textarea{min-height:100px}
 
 footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
 
-/* small screen adjustments */
+/* ---------------------------- */
+/* SMALL SCREEN ADJUSTMENTS     */
+/* ---------------------------- */
+
 @media (max-width:980px){
   .hero{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
+  .hamburger{display:block}
+
+  .nav-links{
+    position:absolute;
+    top:60px; left:0;
+    width:100%;
+    background:#1e1e1e;
+    display:none;
+    flex-direction:column;
+    text-align:center;
+    padding:20px 0;
+    gap:15px;
+  }
+
+  #menu-toggle:checked ~ .nav-links{
+    display:flex;
+  }
 }
 
 /* force all cards vertical below 600px */
 @media (max-width:600px){
-  #program .panel > div {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    width: 100% !important;
-  }
-
-  .panels { order: 1 !important; width:100% !important; }
-  aside { order: 2 !important; width:100% !important; display:block !important; }
-  .card { flex-direction: column !important; align-items: stretch !important; }
-  .hero{display:flex !important; flex-direction:column !important;}
-  aside.panel{width:100% !important;}
-  .card{flex-direction:column !important;align-items:stretch !important;}
-  .panel{display:flex !important; flex-direction:column !important;}
+  #program .panel > div{display:flex !important;flex-direction:column !important;gap:16px !important;width:100% !important}
+  .panels{order:1 !important;width:100% !important}
+  aside{order:2 !important;width:100% !important;display:block !important}
+  .card{flex-direction:column !important;align-items:stretch !important}
+  .hero{display:flex !important;flex-direction:column !important}
+  aside.panel{width:100% !important}
+  .panel{display:flex !important;flex-direction:column !important}
   .grid{grid-template-columns:1fr !important}
   #pricing > div{grid-template-columns:1fr !important}
-  .card{flex-direction:column !important;align-items:stretch !important}
 }
 
+/* additional responsive tweaks */
 @media (max-width:520px){
   .hero{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
-}
-
-@media (max-width:520px){
   .logo{width:52px;height:52px;font-size:18px}
   header{flex-direction:column;align-items:flex-start;gap:12px}
-  nav{width:100%;overflow:auto}
-  .h2about{font-size:5px;}
+  nav{width:100%;overflow:hidden}
+  .h2about{font-size:20px}
 }
 
 /* micro interactions */
@@ -115,131 +127,235 @@ footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
 .btn:active{transform:translateY(1px)}
 a.anchor{color:var(--accent-2);text-decoration:none}
 
-/* Mobile view for screens below 600px */
-@media (max-width: 600px) {
-  .panel{display:flex !important; flex-direction:column !important;}
+/* Mobile view for screens below 600px (latest version kept) */
+@media (max-width:600px){
+  .panel{display:flex !important;flex-direction:column !important}
   .pricing-container,
-  .pricing-card-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-    width: 100% !important;
+  .pricing-card-wrapper{
+    display:flex !important;flex-direction:column !important;align-items:center !important;gap:20px !important;width:100% !important;
   }
-  .pricing-card {
-    width: 100% !important;
-    max-width: 100% !important;
+  .pricing-card{width:100% !important;max-width:100% !important}
+
+  *{box-sizing:border-box;max-width:100%;overflow-x:hidden !important}
+  body,html{width:100%;margin:0;padding:0;overflow-x:hidden !important}
+
+  header,nav,section,footer,.container,.training-card,.facility-card,.materi-card{
+    width:100%;max-width:100%;
   }
-  * {
-    box-sizing: border-box;
-    max-width: 100%;
-    overflow-x: hidden !important;
-  }
-  body, html {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden !important;
-  }
-  header, nav, section, footer, .container, .training-card, .facility-card, .materi-card {
-    width: 100%;
-    max-width: 100%;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 8px;
-    padding: 0;
-    margin: 0;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  .hero-section h2 {
-    color:#556B2F;
-    font-size: 1.6rem;
-    margin-bottom: 1px;
-    margin-top: 5px;
-  }
-  .hero-section p {
-    font-size: 1rem;
-  }
-  .section {
-    padding: 40px 10px;
-  }
-  .cta-button {
-    width: 100%;
-    padding: 14px;
-    font-size: 1.1rem;
-  }
-  form input, form textarea, form button {
-    width: 100% !important;
-  }
-  .h2about {
-    font-size: 20px;
-    color: #556B2F;
-    padding: 0px 10px;
-  }
+
+  nav ul{flex-direction:column;gap:8px;padding:0;margin:0}
+
+  img{max-width:100%;height:auto;display:block}
+
+  .hero-section h2{color:#556B2F;font-size:1.6rem;margin-bottom:1px;margin-top:5px}
+  .hero-section p{font-size:1rem}
+
+  .section{padding:40px 10px}
+
+  .cta-button{width:100%;padding:14px;font-size:1.1rem}
+
+  form input,form textarea,form button{width:100% !important}
+
+  .h2about{font-size:20px;color:#556B2F;padding:0 10px}
 }
 
-#about h2 {
-    color:#556B2F;
-    text-align: center;
-    margin-bottom: 1px;
-    margin-top: 18px;
-}
-
-nav ul {
-  flex-direction: column;
-  gap: 8px;
-}
-.hero-section h2 {
+#about h2{
   color:#556B2F;
-  font-size: 1.6rem;
-  text-align: center;
+  text-align:center;
+  margin-bottom:1px;
+  margin-top:18px;
 }
-.hero-section p {
-  font-size: 1rem;
+
+nav ul{
+  flex-direction:column;
+  gap:8px;
 }
-.section {
-  padding: 40px 10px;
+.hero-section h2{
+  color:#556B2F;
+  font-size:1.6rem;
+  text-align:center;
 }
-.training-card, .facility-card, .materi-card {
-  padding: 15px;
-}
-.cta-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1.1rem;
-}
-form input, form textarea, form button {
-  width: 100% !important;
-}
+.hero-section p{font-size:1rem}
+.section{padding:40px 10px}
+
+.training-card,.facility-card,.materi-card{padding:15px}
+
+.cta-button{width:100%;padding:14px;font-size:1.1rem}
+
+form input,form textarea,form button{width:100% !important}
 
 /* Prevent horizontal scrolling */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+html,body{max-width:100%;overflow-x:hidden}
+*{box-sizing:border-box}
+img,section,div{max-width:100%}
+
+.h2about{color:#556B2F;padding:0 10px}
+h1,h2,h3{color:#556B2F}
+#address{color:var(--muted)}
+
+/* ----- HAMBURGER (latest version kept) ----- */
+.hamburger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
 }
 
-* {
-  box-sizing: border-box;
+/* Hide checkbox */
+#menu-toggle{display:none}
+
+
+
+
+
+/* --- Hamburger menu behavior --- */
+
+/* Position hamburger on the right of brand */
+header {
+  position: relative;
 }
 
-/* Ensure images and sections never overflow */
-img, section, div {
-  max-width: 100%;
+/* Default: hide hamburger, show nav */
+.hamburger {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 8px;
 }
 
-.h2about {
-  color:#556B2F;
-  padding: 0px 10px;
-}
-h1, h2, h3 {
- color:#556B2F;
+/* Mobile: show hamburger, hide nav */
+@media (max-width: 980px) {
+  .hamburger {
+    display: block;
+  }
 
+  /* Hide navigation initially */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;      /* distance below header */
+    right: 0;
+    width: 100%;
+    background: white;
+    box-shadow: var(--shadow);
+    padding: 20px 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  /* When menu-toggle checked → show menu */
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  /* Nav links mobile style */
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 16px;
+    color: #556B2F;
+  }
 }
-#address {
- color:var(--muted)
+
+/* Hide real checkbox */
+#menu-toggle {
+  display: none;
 }
+
+
+
+
+/* ================================ */
+/* PROFESSIONAL NAVBAR UI UPGRADE  */
+/* ================================ */
+
+header {
+  position: relative;
+  padding: 12px 0;
+}
+
+/* Modern hamburger (3-line animation) */
+.hamburger {
+  display: none;
+  width: 32px;
+  height: 26px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #1b5e20;
+  border-radius: 3px;
+  transition: .35s ease;
+}
+
+/* Animate (X icon) */
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* NAV MOBILE DROPDOWN UPGRADE */
+@media (max-width: 980px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+
+    padding: 18px 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: .35s ease;
+
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    border-radius: 0 0 14px 14px;
+    z-index: 999;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    color: #1b5e20;
+    font-weight: 500;
+    font-size: 15px;
+    transition: .25s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(46,125,50,0.12);
+  }
+}
+
+/* Disable scroll when menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
+

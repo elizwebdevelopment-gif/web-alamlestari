@@ -126,3 +126,11 @@ function handleSubmit(event) {
 
   document.getElementById("regForm").reset();
 }
+
+document.getElementById("menu-toggle").addEventListener("change", function () {
+  if (this.checked) {
+    document.body.classList.add("menu-open");
+  } else {
+    document.body.classList.remove("menu-open");
+  }
+});
