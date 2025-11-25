@@ -3,8 +3,8 @@ function scrollToSection(id) {
 }
 
 function openRegisterWith(selected) {
-  const pkg = document.getElementById("package");
-  pkg.value = selected;
+  const paket = document.getElementById("paket");
+  paket.value = selected;
   scrollToSection("register");
 }
 
@@ -19,7 +19,7 @@ function handleSubmit(event) {
   const name = document.getElementById("nama").value.trim();
   const phone = document.getElementById("whatsapp").value.trim();
   const email = document.getElementById("email").value.trim();
-  const pkg = document.getElementById("paket").value;
+  const paket = document.getElementById("paket").value;
   const agree = document.getElementById("agree").checked;
   const note = document.getElementById("note").value.trim();
   const msgBox = document.getElementById("msg");
@@ -78,7 +78,7 @@ function handleSubmit(event) {
     name: name,
     phone: phone,
     email: email,
-    pkg: pkg,
+    paket: paket,
     agree: agree ? "Yes" : "No",
     note: note,
   };
@@ -107,7 +107,7 @@ function handleSubmit(event) {
     `Nama: ${name}\n` +
     `Email: ${email}\n` +
     `No. HP: ${phone}\n` +
-    `Paket: ${pkg}\n` +
+    `Paket: ${paket}\n` +
     `Saya menyetujui syarat & ketentuan.\n` +
     `${note}`;
 
@@ -127,10 +127,14 @@ function handleSubmit(event) {
   document.getElementById("regForm").reset();
 }
 
-document.getElementById("menu-toggle").addEventListener("change", function () {
-  if (this.checked) {
-    document.body.classList.add("menu-open");
-  } else {
-    document.body.classList.remove("menu-open");
-  }
-});
+
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navMenu = document.getElementById("navMenu");
+
+document.getElementById("hamburger").onclick = () => {
+  document.getElementById("navMenu").classList.toggle("open");
+};
+
+
+
+
