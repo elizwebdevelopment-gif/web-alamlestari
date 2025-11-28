@@ -128,12 +128,8 @@ function handleSubmit(event) {
 }
 
 
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const navMenu = document.getElementById("navMenu");
 
-document.getElementById("hamburger").onclick = () => {
-  document.getElementById("navMenu").classList.toggle("open");
-};
+
 
 
 
