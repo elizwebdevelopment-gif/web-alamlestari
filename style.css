@@ -213,6 +213,7 @@ h1,h2{ text-align: center;}
 }
 
 .slide {
+  padding: 10px 0px;
   width: 100%;
   max-width: 300px;  /* control picture size */
   height: auto;
@@ -273,5 +274,6 @@ h1,h2{ text-align: center;}
     width: 100%;
   }
 }
+
 
 
